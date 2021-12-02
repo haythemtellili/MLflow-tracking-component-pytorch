@@ -1,0 +1,13 @@
+{
+    "seed": 42,
+    "num_epochs": 50,
+    "num_classes": 2,
+    "batch_size": 8,
+    "learning_rate": 0.002,
+    "device": "cuda",
+    "train_dir": "data/wp_def_cor_dup/",
+    "test_dir": "data/wp_def_cor_dup/",
+    "data_csv": "data/data_wp_defecr.csv",
+    "classes": {"wp_defect":1, "wp_correct":0}
+    
+}

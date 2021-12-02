@@ -1,0 +1,211 @@
+__main__ - ERROR - 2021-12-02 09:58:00,032 - Failed to run script due to error:
+[Errno 2] No such file or directory: 'data_wp_defecr.csv'
+__main__ - ERROR - 2021-12-02 09:58:00,034 - Traceback (most recent call last):
+  File "engine.py", line 128, in <module>
+    running(args)
+  File "engine.py", line 85, in running
+    loader_train, loader_valid, loader_test = init_data_loader(args)
+  File "engine.py", line 39, in init_data_loader
+    df = pd.read_csv(args.data_csv)
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/pandas/io/parsers.py", line 610, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/pandas/io/parsers.py", line 462, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/pandas/io/parsers.py", line 819, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/pandas/io/parsers.py", line 1050, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/pandas/io/parsers.py", line 1867, in __init__
+    self._open_handles(src, kwds)
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/pandas/io/parsers.py", line 1368, in _open_handles
+    storage_options=kwds.get("storage_options", None),
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/pandas/io/common.py", line 647, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: 'data_wp_defecr.csv'
+
+__main__ - ERROR - 2021-12-02 09:58:59,338 - Failed to run script due to error:
+name 'train_test_split' is not defined
+__main__ - ERROR - 2021-12-02 09:58:59,338 - Traceback (most recent call last):
+  File "engine.py", line 128, in <module>
+    running(args)
+  File "engine.py", line 85, in running
+    loader_train, loader_valid, loader_test = init_data_loader(args)
+  File "engine.py", line 40, in init_data_loader
+    train, val, test = split_data(df)
+  File "engine.py", line 34, in split_data
+    train, test = train_test_split(df, stratify=df.label, test_size=0.1, random_state=42)
+NameError: name 'train_test_split' is not defined
+
+__main__ - ERROR - 2021-12-02 10:00:12,445 - Failed to run script due to error:
+name 'train_test_split' is not defined
+__main__ - ERROR - 2021-12-02 10:00:12,446 - Traceback (most recent call last):
+  File "engine.py", line 128, in <module>
+    running(args)
+  File "engine.py", line 85, in running
+    loader_train, loader_valid, loader_test = init_data_loader(args)
+  File "engine.py", line 40, in init_data_loader
+    train, val, test = split_data(df)
+  File "engine.py", line 34, in split_data
+    train, test = train_test_split(df, stratify=df.label, test_size=0.1, random_state=42)
+NameError: name 'train_test_split' is not defined
+
+__main__ - ERROR - 2021-12-02 10:01:13,879 - Failed to run script due to error:
+name 'DataLoader' is not defined
+__main__ - ERROR - 2021-12-02 10:01:13,879 - Traceback (most recent call last):
+  File "engine.py", line 129, in <module>
+    running(args)
+  File "engine.py", line 86, in running
+    loader_train, loader_valid, loader_test = init_data_loader(args)
+  File "engine.py", line 58, in init_data_loader
+    loader_train = DataLoader(dataset = dataset_train, batch_size=args.batch_size, shuffle=True, num_workers=0)
+NameError: name 'DataLoader' is not defined
+
+__main__ - ERROR - 2021-12-02 10:02:26,063 - Failed to run script due to error:
+name 'model' is not defined
+__main__ - ERROR - 2021-12-02 10:02:26,064 - Traceback (most recent call last):
+  File "engine.py", line 134, in <module>
+    running(args)
+  File "engine.py", line 93, in running
+    artifacts = train_cnn(args, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 10, in train_cnn
+    optimizer = torch.optim.Adamax(model.parameters(), lr=args.learning_rate)
+NameError: name 'model' is not defined
+
+__main__ - ERROR - 2021-12-02 10:05:07,469 - Failed to run script due to error:
+too many values to unpack (expected 2)
+__main__ - ERROR - 2021-12-02 10:05:07,470 - Traceback (most recent call last):
+  File "engine.py", line 135, in <module>
+    running(args)
+  File "engine.py", line 94, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 15, in train_cnn
+    for i, (images, labels) in enumerate(loader_train):
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 517, in __next__
+    data = self._next_data()
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 557, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/relationalai/mastec/debugging/DVC_wp/dataset.py", line 63, in __getitem__
+    img_name, label = self.df[index]
+ValueError: too many values to unpack (expected 2)
+
+__main__ - ERROR - 2021-12-02 10:08:38,866 - Failed to run script due to error:
+name 'os' is not defined
+__main__ - ERROR - 2021-12-02 10:08:38,867 - Traceback (most recent call last):
+  File "engine.py", line 135, in <module>
+    running(args)
+  File "engine.py", line 94, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 15, in train_cnn
+    for i, (images, labels) in enumerate(loader_train):
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 517, in __next__
+    data = self._next_data()
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 557, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/relationalai/mastec/debugging/DVC_wp/dataset.py", line 64, in __getitem__
+    img_path = os.path.join(self.data_dir, img_name)
+NameError: name 'os' is not defined
+
+__main__ - ERROR - 2021-12-02 10:09:21,969 - Failed to run script due to error:
+name 'cv2' is not defined
+__main__ - ERROR - 2021-12-02 10:09:21,970 - Traceback (most recent call last):
+  File "engine.py", line 135, in <module>
+    running(args)
+  File "engine.py", line 94, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 15, in train_cnn
+    for i, (images, labels) in enumerate(loader_train):
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 517, in __next__
+    data = self._next_data()
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 557, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/relationalai/mastec/debugging/DVC_wp/dataset.py", line 66, in __getitem__
+    image = cv2.imread(img_path)
+NameError: name 'cv2' is not defined
+
+__main__ - ERROR - 2021-12-02 10:09:52,391 - Failed to run script due to error:
+name 'np' is not defined
+__main__ - ERROR - 2021-12-02 10:09:52,392 - Traceback (most recent call last):
+  File "engine.py", line 135, in <module>
+    running(args)
+  File "engine.py", line 94, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 15, in train_cnn
+    for i, (images, labels) in enumerate(loader_train):
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 517, in __next__
+    data = self._next_data()
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 557, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/relationalai/anaconda3/envs/m_rcnn/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/relationalai/mastec/debugging/DVC_wp/dataset.py", line 69, in __getitem__
+    image = self.transform(**{"image": np.array(image)})["image"]
+NameError: name 'np' is not defined
+
+__main__ - ERROR - 2021-12-02 10:10:47,484 - Failed to run script due to error:
+name 'mlflow' is not defined
+__main__ - ERROR - 2021-12-02 10:10:47,485 - Traceback (most recent call last):
+  File "engine.py", line 135, in <module>
+    running(args)
+  File "engine.py", line 94, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 43, in train_cnn
+    mlflow.log_metrics(
+NameError: name 'mlflow' is not defined
+
+__main__ - ERROR - 2021-12-02 10:11:32,143 - Failed to run script due to error:
+name 'args' is not defined
+__main__ - ERROR - 2021-12-02 10:11:32,143 - Traceback (most recent call last):
+  File "engine.py", line 135, in <module>
+    running(args)
+  File "engine.py", line 94, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 51, in train_cnn
+    performance = test(best_model, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/test.py", line 22, in test
+    x = x.to(args.device)
+NameError: name 'args' is not defined
+
+__main__ - ERROR - 2021-12-02 10:12:45,453 - Failed to run script due to error:
+'types.SimpleNamespace' object has no attribute 'eval'
+__main__ - ERROR - 2021-12-02 10:12:45,454 - Traceback (most recent call last):
+  File "engine.py", line 135, in <module>
+    running(args)
+  File "engine.py", line 94, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 51, in train_cnn
+    performance = test(best_model, args, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/test.py", line 16, in test
+    model.eval()
+AttributeError: 'types.SimpleNamespace' object has no attribute 'eval'
+
+__main__ - ERROR - 2021-12-02 10:16:17,431 - Failed to run script due to error:
+name 'precision_recall_fscore_support' is not defined
+__main__ - ERROR - 2021-12-02 10:16:17,431 - Traceback (most recent call last):
+  File "engine.py", line 131, in <module>
+    running(args)
+  File "engine.py", line 89, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/train.py", line 51, in train_cnn
+    performance = test(args, best_model, loader_test)
+  File "/home/relationalai/mastec/debugging/DVC_wp/test.py", line 35, in test
+    metrics = precision_recall_fscore_support(sub['target'], sub['pred'], average="weighted")
+NameError: name 'precision_recall_fscore_support' is not defined
+
+numexpr.utils - INFO - 2021-12-02 10:54:44,956 - NumExpr defaulting to 6 threads.
+numexpr.utils - INFO - 2021-12-02 10:55:00,806 - NumExpr defaulting to 6 threads.
+numexpr.utils - INFO - 2021-12-02 10:57:25,352 - NumExpr defaulting to 6 threads.
+numexpr.utils - INFO - 2021-12-02 13:20:18,363 - NumExpr defaulting to 6 threads.

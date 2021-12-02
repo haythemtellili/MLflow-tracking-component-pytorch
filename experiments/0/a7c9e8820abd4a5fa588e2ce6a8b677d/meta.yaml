@@ -1,0 +1,15 @@
+artifact_uri: file:///home/relationalai/mastec/debugging/DVC_wp/experiments/0/a7c9e8820abd4a5fa588e2ce6a8b677d/artifacts
+end_time: 1638442883921
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: a7c9e8820abd4a5fa588e2ce6a8b677d
+run_uuid: a7c9e8820abd4a5fa588e2ce6a8b677d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1638442645334
+status: 3
+tags: []
+user_id: relationalai
