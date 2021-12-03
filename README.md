@@ -36,8 +36,9 @@ cd Image_classification_with_MLflow/
 conda env create --file environment.yml
 ```
 
+```
 - specify the configuration in configs/train_model_config.json
-
+```
 - Launch the training
 
 ```bash
