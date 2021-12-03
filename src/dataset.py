@@ -77,4 +77,6 @@ class MyDataset(Dataset):
         if self.phase in ["train", "eval"]:
             return image, label
         # test
-        return image, img_name
+        return image, img_name, label
+
+
