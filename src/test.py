@@ -18,7 +18,7 @@ def test(args, model, loader_test):
         with torch.no_grad():
             x = x.float()
             x = x.to(args.device)
-            output = best_model(x)
+            output = model(x)
             pred = torch.argmax(output, dim=1)
             fn_list += [n[:-4] for n in fn]
             pred_list += [p.item() for p in pred]

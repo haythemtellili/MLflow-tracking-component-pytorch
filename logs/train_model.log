@@ -209,3 +209,86 @@ numexpr.utils - INFO - 2021-12-02 10:54:44,956 - NumExpr defaulting to 6 threads
 numexpr.utils - INFO - 2021-12-02 10:55:00,806 - NumExpr defaulting to 6 threads.
 numexpr.utils - INFO - 2021-12-02 10:57:25,352 - NumExpr defaulting to 6 threads.
 numexpr.utils - INFO - 2021-12-02 13:20:18,363 - NumExpr defaulting to 6 threads.
+__main__ - ERROR - 2021-12-03 17:11:01,033 - Failed to run script due to error:
+You are trying to use a deprecated augmentation 'IAAAdditiveGaussianNoise' which depends on the imgaug library, but imgaug is not installed.
+
+There are two options to fix this error:
+1. [Recommended]. Switch to the Albumentations' implementation of the augmentation with the same API: GaussNoise - https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.GaussNoise
+2. Install a version of Albumentations that contains imgaug by running 'pip install -U albumentations[imgaug]'.
+__main__ - ERROR - 2021-12-03 17:11:01,034 - Traceback (most recent call last):
+  File "src/engine.py", line 171, in <module>
+    running(args)
+  File "src/engine.py", line 123, in running
+    loader_train, loader_valid, loader_test, tags = init_data_loader(args)
+  File "src/engine.py", line 70, in init_data_loader
+    train_tfms, test_tfms = get_augmentations(p=0.5)
+  File "/Users/haythemtellili/github_projects/Image_classification_with_MLflow/src/dataset.py", line 32, in get_augmentations
+    A.OneOf([A.IAAAdditiveGaussianNoise(), A.GaussNoise(),], p=p),
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/albumentations/imgaug/stubs.py", line 19, in __init__
+    raise RuntimeError(
+RuntimeError: You are trying to use a deprecated augmentation 'IAAAdditiveGaussianNoise' which depends on the imgaug library, but imgaug is not installed.
+
+There are two options to fix this error:
+1. [Recommended]. Switch to the Albumentations' implementation of the augmentation with the same API: GaussNoise - https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.GaussNoise
+2. Install a version of Albumentations that contains imgaug by running 'pip install -U albumentations[imgaug]'.
+
+__main__ - ERROR - 2021-12-03 17:17:56,770 - Failed to run script due to error:
+Torch not compiled with CUDA enabled
+__main__ - ERROR - 2021-12-03 17:17:56,771 - Traceback (most recent call last):
+  File "src/engine.py", line 171, in <module>
+    running(args)
+  File "src/engine.py", line 125, in running
+    model = SimpleCNN(args.num_classes).to(args.device)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/torch/nn/modules/module.py", line 673, in to
+    return self._apply(convert)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/torch/nn/modules/module.py", line 387, in _apply
+    module._apply(fn)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/torch/nn/modules/module.py", line 409, in _apply
+    param_applied = fn(param)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/torch/nn/modules/module.py", line 671, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/torch/cuda/__init__.py", line 164, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+__main__ - ERROR - 2021-12-03 18:36:22,515 - Failed to run script due to error:
+name 'best_model' is not defined
+__main__ - ERROR - 2021-12-03 18:36:22,516 - Traceback (most recent call last):
+  File "src/engine.py", line 171, in <module>
+    running(args)
+  File "src/engine.py", line 127, in running
+    artifacts = train_cnn(args, model, loader_train, loader_valid, loader_test)
+  File "/Users/haythemtellili/github_projects/Image_classification_with_MLflow/src/train.py", line 56, in train_cnn
+    performance = test(args, best_model, loader_test)
+  File "/Users/haythemtellili/github_projects/Image_classification_with_MLflow/src/test.py", line 21, in test
+    output = best_model(x)
+NameError: name 'best_model' is not defined
+
+__main__ - ERROR - 2021-12-03 18:38:36,665 - Failed to run script due to error:
+[Errno 45] Operation not supported: '/home/relationalai'
+__main__ - ERROR - 2021-12-03 18:38:36,672 - Traceback (most recent call last):
+  File "src/engine.py", line 171, in <module>
+    running(args)
+  File "src/engine.py", line 140, in running
+    mlflow.log_artifacts(dp)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/mlflow/tracking/fluent.py", line 277, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/mlflow/tracking/client.py", line 254, in log_artifacts
+    artifact_repo.log_artifacts(local_dir, artifact_path)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/mlflow/store/local_artifact_repo.py", line 43, in log_artifacts
+    mkdir(artifact_dir)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 106, in mkdir
+    raise e
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/site-packages/mlflow/utils/file_utils.py", line 103, in mkdir
+    os.makedirs(target)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/os.py", line 213, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/os.py", line 213, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/os.py", line 213, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  [Previous line repeated 4 more times]
+  File "/usr/local/anaconda3/envs/mlflow_test/lib/python3.8/os.py", line 223, in makedirs
+    mkdir(name, mode)
+OSError: [Errno 45] Operation not supported: '/home/relationalai'
+
