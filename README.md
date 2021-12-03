@@ -50,5 +50,6 @@ mlflow server --port 6006  --backend-store-uri experiments/
 ```
 
 - Visit http://localhost:6006 to check the runs on the MLflow ui
-
+- 
+![](./data/screen.png)
 
