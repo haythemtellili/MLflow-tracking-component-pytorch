@@ -1,5 +1,5 @@
 ### How to use MLflow to manage the Machine Learning lifecycle.
-
+![](https://miro.medium.com/max/1000/1*0zMGy7YdRhuSA3X2ymqotg.jpeg)
 In this repo, I experiment with MLflow to:
 
 - track machine learning experiments based on:
@@ -36,9 +36,8 @@ cd Image_classification_with_MLflow/
 conda env create --file environment.yml
 ```
 
-```
 - specify the configuration in configs/train_model_config.json
-```
+
 - Launch the training
 
 ```bash
@@ -51,3 +50,5 @@ mlflow server --port 6006  --backend-store-uri experiments/
 ```
 
 - Visit http://localhost:6006 to check the runs on the MLflow ui
+
+
