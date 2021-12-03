@@ -35,3 +35,18 @@ cd Image_classification_with_MLflow/
 ```bash
 conda env create --file environment.yml
 ```
+
+- specify the configuration in configs/train_model_config.json
+
+- Launch the training
+
+```bash
+python src/engine.py
+```
+- Start a tracking server locally
+
+```bash
+mlflow server --port 6006  --backend-store-uri experiments/
+```
+
+- Visit http://localhost:6006 to check the runs on the MLflow ui
